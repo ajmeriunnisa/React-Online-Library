@@ -6,6 +6,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Body from './components/Body.jsx'
 import BookDetails from './components/BookDetails.jsx'
 import BrowseBooks from './components/BrowseBooks.jsx'
+import ErrorPage from './components/ErrorPage.jsx'
 
 const appRouter=createBrowserRouter([
   {
@@ -27,7 +28,10 @@ const appRouter=createBrowserRouter([
     ]
   },
   
-
+{
+  path:'*',
+  element:<ErrorPage/>
+}
 ])
 
 
