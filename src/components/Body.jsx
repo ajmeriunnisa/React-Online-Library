@@ -1,4 +1,5 @@
 import React from 'react';
+import PopularBooksCard from './PopularBooksCard';
 
 function Body() {
     return (
@@ -36,9 +37,10 @@ function Body() {
             </div>
 
             {/* Popular Books Section Header */}
-            <h2 className="font-semibold text-2xl text-cyan-800 text-center mb-6">
+            <h2 className="font-bold text-3xl  text-cyan-800 text-center mb-6">
                 Popular Books
             </h2>
+            <PopularBooksCard/>
         </div>
     );
 }

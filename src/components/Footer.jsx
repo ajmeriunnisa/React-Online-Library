@@ -3,7 +3,7 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 function Footer() {
     return (
-        <footer className="fixed bottom-0 left-0 w-full bg-gray-200 mt-12 py-6 text-center border-t border-gray-200">
+        <footer className=" bottom-0 left-0 w-full bg-gray-200 mt-12 py-6 text-center border-t border-gray-200">
 
             <p className="text-gray-600 text-sm">
                 © {new Date().getFullYear()} <span className="font-semibold">LibraSphere Library</span>. All rights reserved.
