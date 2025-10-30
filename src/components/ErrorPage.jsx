@@ -6,6 +6,7 @@ function ErrorPage() {
     //   console.log(location);
 
     return (
+        //Error Page
         <>
             <div className="flex flex-col justify-center items-center min-h-screen bg-linear-to-b from-blue-50 to-blue-100 text-center">
 
