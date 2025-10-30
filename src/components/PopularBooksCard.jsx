@@ -1,5 +1,6 @@
 import React from 'react'
 import BooksData from '../utils/BooksData'
+import { Link } from 'react-router-dom';
 
 
 function PopularBooksCard() {
@@ -23,8 +24,9 @@ function PopularBooksCard() {
                         {item.title}
                     </h1>
                     <p className="text-gray-500 text-sm">Category: {item.category}</p>
-                    <span className='hover:text-blue-700 hover:underline text-sm cursor-pointer'>View Details</span>
-
+                   <Link to={`/BookDetails/${item.id}`}>
+                    <span className='hover:text-blue-700 hover:underline text-sm cursor-pointer'>View More Details</span>
+                    </Link>
                 </div>
             ))}
 
