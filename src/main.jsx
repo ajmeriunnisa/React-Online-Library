@@ -20,11 +20,15 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/BookDetails/:id',
-        element: <BookDetails />  // Dynamic Book Details Page
+        element: <BookDetails backPath="/"/>  // Dynamic Book Details Page
       },
       {
         path: '/book',
         element: <BrowseBooks />  //BrowseBooks Page
+      },
+      {
+        path:'/BrowseBookDetails/:id',
+        element:<BookDetails backPath='/book'/>
       }
     ]
   },

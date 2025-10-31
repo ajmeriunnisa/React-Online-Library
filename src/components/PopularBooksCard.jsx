@@ -8,8 +8,8 @@ function PopularBooksCard() {
     // ===== Selecting Popular Books =====
     const popularBooks = [
         ...BooksData.filter(book => book.category === "Fiction").slice(0, 2),
-        ...BooksData.filter(book => book.category === "Non-Fiction").slice(0, 2),
-        ...BooksData.filter(book => book.category === "Sci-Fi").slice(0, 2),
+        ...BooksData.filter(book => book.category === "Non-Fiction").slice(0, 3),
+        ...BooksData.filter(book => book.category === "Sci-Fi").slice(0, 3),
     ];
 
     return (

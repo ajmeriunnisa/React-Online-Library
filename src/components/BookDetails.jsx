@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import BooksData from '../utils/BooksData';
 import { FaStar } from "react-icons/fa";
 
-function BookDetails() {
+function BookDetails({backPath}) {
     // ===== Extract Book ID from URL =====
     const { id } = useParams();
 
@@ -69,8 +69,8 @@ function BookDetails() {
             </div>
 
             {/* ===== Back Button ===== */}
-            <div className="flex justify-center mb-4">
-                <Link to='/'>
+            <div className="flex justify-center ">
+                <Link to={backPath}>
                     <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
                         ← Back
                     </button>
