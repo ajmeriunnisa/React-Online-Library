@@ -20,6 +20,25 @@ function BrowseBooks() {
       {/* Search bar */}
       <Search onSearch={handleSearch} />
 
+      {/*  Category Buttons */}
+      <div className="flex justify-center flex-wrap gap-4 mt-10">
+        <Link to="/book/Fiction">
+          <button className="border border-cyan-700 text-cyan-700 hover:bg-cyan-700 hover:text-white px-5 py-2 rounded-full text-sm font-medium transition">
+            Fiction
+          </button>
+        </Link>
+        <Link to="/book/Non-Fiction">
+          <button className="border border-cyan-700 text-cyan-700 hover:bg-cyan-700 hover:text-white px-5 py-2 rounded-full text-sm font-medium transition">
+            Non-Fiction
+          </button>
+        </Link>
+        <Link to="/book/Sci-Fi">
+          <button className="border border-cyan-700 text-cyan-700 hover:bg-cyan-700 hover:text-white px-5 py-2 rounded-full text-sm font-medium transition">
+            Sci-Fi
+          </button>
+        </Link>
+      </div>
+
       {/* Books grid */}
       <div className="mt-10 flex flex-wrap justify-center gap-6">
         {filteredBooks.length > 0 ? (
@@ -36,7 +55,7 @@ function BrowseBooks() {
               <h3 className="font-bold text-lg text-gray-800">{book.title}</h3>
               <p className="text-sm text-gray-500">{book.category}</p>
               <Link
-                to={`/BrowseBookDetails/${book.id}`} 
+                to={`/BrowseBookDetails/${book.id}`}
                 className="text-blue-600 text-sm hover:underline mt-2 inline-block"
               >
                 View More Details →

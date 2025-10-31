@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
     return (
@@ -14,19 +14,40 @@ function Header() {
             <ul className="flex items-center space-x-6 text-lg font-medium">
 
                 {/* Home navigation link */}
-                <Link to='/'><li className="ml-2 px-3 py-1 rounded-md hover:bg-cyan-600 cursor-pointer">
+                <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                        isActive
+                            ? "border-b-2 border-white pb-1"
+                            : "hover:text-gray-200"
+                    }
+                >
                     Home
-                </li></Link>
+                </NavLink>
 
                 {/* Browse Books navigation link */}
-                <Link to='/book'><li className="ml-2 px-3 py-1 rounded-md hover:bg-cyan-600 cursor-pointer">
+                <NavLink
+                    to="/book"
+                    className={({ isActive }) =>
+                        isActive
+                            ? "border-b-2 border-white pb-1"
+                            : "hover:text-gray-200"
+                    }
+                >
                     Browse Books
-                </li></Link>
+                </NavLink>
 
                 {/* Add Book navigation link */}
-                <li className="ml-2 px-3 py-1 rounded-md hover:bg-cyan-600 cursor-pointer">
+                <NavLink
+                    to="/AddBook"
+                    className={({ isActive }) =>
+                        isActive
+                            ? "border-b-2 border-white pb-1"
+                            : "hover:text-gray-200"
+                    }
+                >
                     Add Book
-                </li>
+                </NavLink>
             </ul>
         </nav>
     );
