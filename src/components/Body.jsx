@@ -21,7 +21,7 @@ function Body() {
                 {/* Fiction Category Button */}
                 <button
                     type="button"
-                    className="border border-cyan-700 text-cyan-700 hover:bg-cyan-700 hover:text-white transition px-5 py-2 rounded-full text-sm font-medium"
+                    className="border border-cyan-700 text-cyan-700 px-5 py-2 rounded-full text-sm font-medium"
                 >
                     Fiction
                 </button>
@@ -29,7 +29,7 @@ function Body() {
                 {/* Non-Fiction Category Button */}
                 <button
                     type="button"
-                    className="border border-cyan-700 text-cyan-700 hover:bg-cyan-700 hover:text-white transition px-5 py-2 rounded-full text-sm font-medium"
+                    className="border border-cyan-700 text-cyan-700 px-5 py-2 rounded-full text-sm font-medium"
                 >
                     Non-Fiction
                 </button>
@@ -37,7 +37,7 @@ function Body() {
                 {/* Sci-Fi Category Button */}
                 <button
                     type="button"
-                    className="border border-cyan-700 text-cyan-700 hover:bg-cyan-700 hover:text-white transition px-5 py-2 rounded-full text-sm font-medium"
+                    className="border border-cyan-700 text-cyan-700 px-5 py-2 rounded-full text-sm font-medium"
                 >
                     Sci-Fi
                 </button>

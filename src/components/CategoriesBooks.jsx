@@ -16,7 +16,7 @@ function CategoriesBooks() {
       localStorage.setItem("books", JSON.stringify(BooksData));
       setBooks(BooksData);
     }
-  }, []);
+  }, [category]);
 
     // Filter books based on the category from BooksData
     const filteredBooks = books.filter(

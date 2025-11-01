@@ -7,7 +7,7 @@ import BooksData from '../utils/BooksData'
 function BrowseBooks() {
 
    const [books, setBooks] = useState([]); // store all books
-  const [filteredBooks, setFilteredBooks] = useState(BooksData)
+  const [filteredBooks, setFilteredBooks] = useState([]);
 
   // Check for a newly added book from localStorage (after Add Book form submission)
    useEffect(() => {

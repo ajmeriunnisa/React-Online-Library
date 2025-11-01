@@ -20,7 +20,7 @@ function BookDetails({backPath}) {
   const book =
     passedBook ||
     addedBooks.find((b) => String(b.id) === String(id)) ||
-    BooksData.find((b) => parseInt(b.id) === parseInt(id));
+    BooksData.find((b) => String(b.id) === String(id));
 
     // ===== Handle Invalid Book ID =====
     if (!book) {
@@ -77,7 +77,7 @@ function BookDetails({backPath}) {
             <div className="text-center text-gray-600 mb-5">
                 <p><strong>Library:</strong> {book.library}</p>
                 <p><strong>Price:</strong> ${book.price}</p>
-                <p><strong>Status:</strong> {book.available ? "Available" : "Out of Stock"}</p>
+                <p><strong>Status:</strong> {book.status ? "Available" : "Out of Stock"}</p>
             </div>
 
             {/* ===== Back Button ===== */}

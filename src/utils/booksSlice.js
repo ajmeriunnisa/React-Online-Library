@@ -5,7 +5,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const booksSlice=createSlice({
     name:"books",
     initialState:{
-        list:[],
+        books:[],
     },
     reducers:{
         addBook:(state,action)=>{

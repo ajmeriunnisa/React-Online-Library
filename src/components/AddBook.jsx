@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BooksData from "../utils/BooksData";
+import { useDispatch } from "react-redux";
+import { addBook } from "../utils/booksSlice";
 
 function AddBook() {
   const [form, setForm] = useState({
@@ -18,8 +20,11 @@ function AddBook() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const dispatch=useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
 
     //  Validate inputs
     if (!form.title || !form.author || !form.category || !form.price) {
@@ -33,10 +38,11 @@ function AddBook() {
       ...form,
       rating: 4.5,
       library: "LibraSphere",
-      available: true,
+      status: "Available",
     };
 
-    //  Save temporarily (to mimic Redux behavior)
+    //  Save temporarily 
+    dispatch(addBook(newBook)); 
     localStorage.setItem("newBook", JSON.stringify(newBook));
 
     //  Redirect to Browse Books page
