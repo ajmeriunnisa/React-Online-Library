@@ -8,6 +8,7 @@ import BookDetails from './components/BookDetails.jsx'
 import BrowseBooks from './components/BrowseBooks.jsx'
 import ErrorPage from './components/ErrorPage.jsx'
 import CategoriesBooks from './components/CategoriesBooks.jsx'
+import AddBook from './components/AddBook.jsx'
 
 // ===== Application Routing Setup =====
 const appRouter = createBrowserRouter([
@@ -24,16 +25,20 @@ const appRouter = createBrowserRouter([
         element: <BookDetails backPath="/"/>  // Dynamic Book Details Page
       },
       {
-        path: '/book',
+        path: '/books',
         element: <BrowseBooks />  //BrowseBooks Page
       },
       {
         path:'/BrowseBookDetails/:id',
-        element:<BookDetails backPath='/book'/>  // Dynamic Book Details Page
+        element:<BookDetails backPath='/books'/>  // Dynamic Book Details Page
       },
-      { path: "/book/:category",
+      { path: "/books/:category",
          element: <CategoriesBooks />   // Browse filtered by category
       },  
+      {
+        path:"/AddBook",
+        element:<AddBook/>
+      }
     ]
   },
 

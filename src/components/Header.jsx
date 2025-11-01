@@ -6,7 +6,7 @@ function Header() {
         <nav className="flex justify-between items-center bg-cyan-700 text-white px-6 py-4 shadow-sm">
             {/* Logo / Title */}
             {/* Clicking the title redirects to the Home page */}
-            <Link to='/'><h1 className="p-2 font-extrabold text-3xl tracking-tight cursor-pointer">
+            <Link to='/'><h1 className="p-2 font-extrabold text-3xl tracking-tighter cursor-pointer">
                 LibraSphere
             </h1></Link>
 
@@ -27,7 +27,7 @@ function Header() {
 
                 {/* Browse Books navigation link */}
                 <NavLink
-                    to="/book"
+                    to="/books"
                     className={({ isActive }) =>
                         isActive
                             ? "border-b-2 border-white pb-1"

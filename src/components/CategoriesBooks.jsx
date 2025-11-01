@@ -53,7 +53,7 @@ function CategoriesBooks() {
             {/* Back Button */}
             <div className="text-center mt-10">
                 <Link
-                    to='/book'
+                    to='/books'
                     className="bg-cyan-700 text-white px-6 py-2 rounded-full hover:bg-cyan-800 transition"
                 >
                     ← Back to Browse

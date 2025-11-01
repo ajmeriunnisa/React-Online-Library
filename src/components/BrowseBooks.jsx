@@ -22,17 +22,17 @@ function BrowseBooks() {
 
       {/*  Category Buttons */}
       <div className="flex justify-center flex-wrap gap-4 mt-10">
-        <Link to="/book/Fiction">
+        <Link to="/books/Fiction">
           <button className="border border-cyan-700 text-cyan-700 hover:bg-cyan-700 hover:text-white px-5 py-2 rounded-full text-sm font-medium transition">
             Fiction
           </button>
         </Link>
-        <Link to="/book/Non-Fiction">
+        <Link to="/books/Non-Fiction">
           <button className="border border-cyan-700 text-cyan-700 hover:bg-cyan-700 hover:text-white px-5 py-2 rounded-full text-sm font-medium transition">
             Non-Fiction
           </button>
         </Link>
-        <Link to="/book/Sci-Fi">
+        <Link to="/books/Sci-Fi">
           <button className="border border-cyan-700 text-cyan-700 hover:bg-cyan-700 hover:text-white px-5 py-2 rounded-full text-sm font-medium transition">
             Sci-Fi
           </button>
