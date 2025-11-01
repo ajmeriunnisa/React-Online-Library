@@ -48,7 +48,7 @@ function CategoriesBooks() {
 
                             {/* View Details link */}
                             <Link
-                                to={`/BrowseBookDetails/${book.id}`}
+                                to={`/BrowseBookDetails/${book.id}`} state={{book}}
                                 className="text-blue-600 text-sm hover:underline mt-2 inline-block"
                             >
                                 View More Details →

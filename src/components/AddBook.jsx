@@ -7,6 +7,7 @@ function AddBook() {
     title: "",
     author: "",
     category: "",
+    description: "",
     price: "",
     image: "",
   });
@@ -78,6 +79,13 @@ function AddBook() {
           <option value="Non-Fiction">Non-Fiction</option>
           <option value="Sci-Fi">Sci-Fi</option>
         </select>
+        <textarea
+          name="description"
+          placeholder="Description (optional)"
+          value={form.description}
+          onChange={handleChange}
+          className="border rounded p-2 focus:outline-none focus:ring-2 focus:ring-cyan-700">
+        </textarea>
         <input
           type="number"
           name="price"
