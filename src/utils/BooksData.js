@@ -1,4 +1,4 @@
-const BooksData = [
+export const BooksData = [
   //  Fiction Books
   {
     id: 1,

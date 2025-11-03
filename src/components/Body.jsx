@@ -44,7 +44,7 @@ function Body() {
             </div>
 
             {/* ===== Popular Books Section ===== */}
-            <h2 className="font-bold text-3xl  text-cyan-800 text-center mb-6">
+            <h2 className="font-bold text-3xl  text-cyan-800 text-center ">
                 Popular Books
             </h2>
             <PopularBooksCard />

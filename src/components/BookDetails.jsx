@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import BooksData from '../utils/BooksData';
 import { FaStar } from "react-icons/fa";
 import { useSelector } from 'react-redux';
@@ -8,20 +8,13 @@ import { useSelector } from 'react-redux';
 function BookDetails({backPath}) {
     // ===== Extract Book ID from URL =====
     const { id } = useParams();
-    const location=useLocation();
+    const books =useSelector((state)=>state.books.books)
 
-  // ===== Get book from Redux store =====
-  const addedBooks = useSelector((state) => state.books?.books || []);
-
-  // =====  Try to get book from router state (if passed) =====
-  const passedBook = location.state?.book;
-
+  
     // =====  Try to find the book  =====
   const book =
-    passedBook ||
-    addedBooks.find((b) => String(b.id) === String(id)) ||
-    BooksData.find((b) => String(b.id) === String(id));
-
+    books.find((b) => b.id.toString() === id);
+    
     // ===== Handle Invalid Book ID =====
     if (!book) {
         return (

@@ -2,71 +2,64 @@ import React, { useEffect, useState } from 'react'
 import Search from './Search'
 import { Link } from 'react-router-dom'
 import BooksData from '../utils/BooksData'
+import { useSelector } from 'react-redux';
 
 
 function BrowseBooks() {
 
-   const [books, setBooks] = useState([]); // store all books
   const [filteredBooks, setFilteredBooks] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const books=useSelector((state)=>state.books.books);
+  const [message, setMessage] = useState("");
 
-  // Check for a newly added book from localStorage (after Add Book form submission)
-   useEffect(() => {
-    const storedBooks = JSON.parse(localStorage.getItem("books"));
-    if (storedBooks && storedBooks.length > 0) {
-      setBooks(storedBooks);
-      setFilteredBooks(storedBooks);
-    } else {
-      localStorage.setItem("books", JSON.stringify(BooksData));
-      setBooks(BooksData);
-      setFilteredBooks(BooksData);
-    }
-  }, []);
 
-   // When newBook exists (added from AddBook.jsx)
-  useEffect(() => {
-    const newBook = JSON.parse(localStorage.getItem("newBook"));
-    if (newBook) {
-      setBooks((prev) => {
-        const updatedBooks = [newBook, ...prev];
-        localStorage.setItem("books", JSON.stringify(updatedBooks)); // save permanently
-        setFilteredBooks(updatedBooks);
-        return updatedBooks;
-      });
-      localStorage.removeItem("newBook");
-    }
-  }, []);
-
+  useEffect(()=>{
+    setFilteredBooks(books);
+  },[books]);
 
   // Handle search
-  function handleSearch(searchText) {
-    if (!searchText.trim()) {
-      setFilteredBooks(books); // reset if empty
+  function handleSearch(e) {
+    e.preventDefault();
+
+    if (searchTerm.trim() === "") {
+      setMessage("Please enter something to search.");
       return;
     }
 
-    const filtered = books.filter((book) =>
-      book.title.toLowerCase().includes(searchText.toLowerCase())
+    const filtered = books.filter(
+      (book) =>
+        book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        book.author.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredBooks(filtered);
+
+
+   if (filtered.length === 0) {
+      setMessage("No books found for your search.");
+    } else {
+      setMessage("");
+    }
   }
 
   function handleClearSearch() {
+    setSearchTerm("");
     setFilteredBooks(books); // reset to all books
+    setMessage("")
   }
 
   return (
     <div className="px-6 py-10 max-w-7xl mx-auto">
-      {/* Search bar */}
-      <Search onSearch={handleSearch} />
+      {/* Search Section */}
+      <Search
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        onSearch={handleSearch}
+        onClear={handleClearSearch}
+      />
 
-      {/* Show All Books button */}
-      <div className="flex justify-center mt-4">
-       <button
-          onClick={handleClearSearch}
-          className="mt-3 bg-gray-200 text-cyan-700 px-5 py-2 rounded-full hover:bg-gray-300 transition"
-        >
-          Show All Books
-        </button></div>
+      {message && (
+        <p className="text-center text-red-600 mt-4 font-medium">{message}</p>
+      )}
 
       {/*  Category Buttons */}
       <div className="flex justify-center flex-wrap gap-4 mt-10">
@@ -89,11 +82,11 @@ function BrowseBooks() {
 
       {/* Books grid */}
       <div className="mt-10 flex flex-wrap justify-center gap-6">
-        {filteredBooks.length > 0 ? (
+       {filteredBooks.length > 0 ? (
           filteredBooks.map((book) => (
             <div
               key={book.id}
-              className="w-72 bg-white rounded-2xl shadow-md p-5 hover:shadow-lg transition"
+              className="w-72 bg-white rounded-2xl shadow-md p-5 hover:shadow-lg hover:scale-102 transition-transform duration-200 "
             >
               <img
                 src={book.image}
@@ -101,17 +94,20 @@ function BrowseBooks() {
                 className="w-full h-52 object-cover rounded-xl mb-3"
               />
               <h3 className="font-bold text-lg text-gray-800">{book.title}</h3>
-              <p className="text-sm text-gray-500">{book.category}</p>
+              <p className="text-sm text-gray-500 mb-2">Category: {book.category}</p>
+              <p className="text-[12px] text-gray-700">By {book.author}</p>
               <Link
-                to={`/BrowseBookDetails/${book.id}`} state={{book}}
+                to={`/BrowseBookDetails/${book.id}`} 
                 className="text-blue-600 text-sm hover:underline mt-2 inline-block"
               >
                 View More Details →
               </Link>
             </div>
           ))
-        ) : (
-          <p className="text-gray-500 text-center mt-10">No books found.</p>
+         ) : (
+          !message && (
+            <p className="text-gray-500 text-center mt-10">No books found.</p>
+          )
         )}
       </div>
     </div>

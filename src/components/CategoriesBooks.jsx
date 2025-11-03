@@ -1,22 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 import BooksData from "../utils/BooksData";
+import { useSelector } from "react-redux";
 
 function CategoriesBooks() {
     // Get category from the URL (e.g. /books/Fiction)
     const { category } = useParams();
-    const [books, setBooks] = useState([]);
-
-  // Load all books (including newly added ones)
-  useEffect(() => {
-    const storedBooks = JSON.parse(localStorage.getItem("books"));
-    if (storedBooks && storedBooks.length > 0) {
-      setBooks(storedBooks);
-    } else {
-      localStorage.setItem("books", JSON.stringify(BooksData));
-      setBooks(BooksData);
-    }
-  }, [category]);
+   const books=useSelector((state)=>state.books.books)
 
     // Filter books based on the category from BooksData
     const filteredBooks = books.filter(
