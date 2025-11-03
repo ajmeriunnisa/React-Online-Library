@@ -1,19 +1,20 @@
 #  Online Library System
 
-A simple React-based online library application that allows users to **browse**, **add**, and **view book details** by category.  
-The app uses **React Router** for navigation, **Redux Toolkit** for state management, and **localStorage** for data persistence.
+A modern React-based online library application that allows users to **browse**, **search**, **add**, and **view** detailed information about books by category.
+Built using **Vite**, **Redux Toolkit**, and **React Router**, this project provides a smooth, dynamic, and responsive user experience.
 
 ---
 
 ##  Features
 
--  **Browse Books** — View all available books with search and category filters  
--  **Add New Books** — Add a new book using a simple form  
--  **Category Filter** — View books based on specific categories (Fiction, Non-Fiction, Sci-Fi, etc.)  
--  **Persistent Storage** — Newly added books are saved in localStorage permanently  
--  **Book Details Page** — View full details of a selected book  
--  **Redux Toolkit** — Used for managing and sharing state across components  
-
+- **Search Functionality** – Search books by title or author.
+- **Category Filtering** – Browse books by specific categories (Fiction, Non-Fiction, Sci-Fi, etc.).
+- **Add New Books** – Add new books using a validated form managed by Redux.
+- **Dynamic Routing** – Navigate between pages seamlessly using React Router.
+- **Book Details View** – View detailed information about any selected book.
+- **404 Page** – Displays an error message for invalid routes.
+- **Responsive UI** – Clean, modern, and mobile-friendly design using Tailwind CSS.
+- **Redux State Management** – Centralized management of all book data across the app.
 ---
 
 ##  Tech Stack
@@ -22,7 +23,6 @@ The app uses **React Router** for navigation, **Redux Toolkit** for state manage
 - **Redux Toolkit** (for state management)
 - **React Router DOM** (for routing)
 - **Tailwind CSS** (for styling)
-- **LocalStorage** (for persistent data)
 
 ---
 
@@ -33,14 +33,15 @@ The app uses **React Router** for navigation, **Redux Toolkit** for state manage
 - Go to the “Add Book” page.
 - Fill in all the required fields — title, author, category, description, price, etc.
 - Click Submit to add the book.
-- The newly added book will appear at the top of the Browse Books page and will be saved permanently.
+- The newly added book will appear at the top of the Browse Books page.
 
 **Search for a Book**
 
 - Go to the Browse Books page.
-- Type the book title in the search bar.
-- The list will automatically show matching results.
+- Type the book title or author name in the search bar.
+- Press Search — only matching results will be shown.
 - Click Show All Books to view the full list again.
+- If the search box is empty, a message will appear asking to enter something to search.
 
 **Browse by Category**
 
